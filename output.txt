@@ -1,0 +1,65 @@
+Employee ID: 1
+Request Type: Leave
+Reason: Sick
+Status: Approved
+-----------------------------
+===== Sick Leave Request =====
+Employee ID: 348700
+Reason: Fever
+Description: I am sick
+Status: Pending
+-----------------------------
+===== Sick Leave Request =====
+Employee ID: 348700
+Reason: Fever
+Description: I am sick
+Status: Pending
+-----------------------------
+===== Sick Leave Request =====
+Employee ID: 348700
+Reason: Fever
+Description: I am sick
+Status: Pending
+-----------------------------
+===== Sick Leave Request =====
+Employee ID: 348700
+Reason: Fever
+Description: I am sick
+Status: Pending
+-----------------------------
+===== Sick Leave Request =====
+Employee ID: 348700
+Reason: Fever
+Description: I am sick
+Status: Pending
+-----------------------------
+===== Sick Leave Request =====
+Employee ID: 348700
+Reason: Fever
+Description: I am sick
+Status: Pending
+-----------------------------
+===== Sick Leave Request =====
+Employee ID: 348700
+Reason: Fever
+Description: I am sick
+Status: Pending
+-----------------------------
+===== Sick Leave Request =====
+Employee ID: 348700
+Reason: Fever
+Description: I am sick
+Status: Pending
+-----------------------------
+===== Sick Leave Request =====
+Employee ID: 348700
+Reason: Fever
+Description: I am sick
+Status: Pending
+-----------------------------
+===== Sick Leave Request =====
+Employee ID: 348700
+Reason: Fever
+Description: I am sick
+Status: Pending
+-----------------------------
