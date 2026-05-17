@@ -3,56 +3,97 @@ package com.mycompany.mobileattendancesystem;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileWriter;
 import java.nio.file.Files;
 
 public class HRTest {
-    
+
     @Test
-    public void testReviewRequestsFileExists() {
+    public void testReviewRequestsApprove() throws Exception {
 
-    // Setup
-    HR hr = new HR();
+        // Setup
+        FileWriter writer = new FileWriter("output.txt", false);
+        writer.write(
+                "Employee: Ali\n" +
+                "Status: Pending\n" +
+                "-----------------------------\n"
+        );
+        writer.close();
 
-    // Calling
-    hr.reviewRequests();
+        HR hr = new HR();
 
-    File file = new File("output.txt");
+        // Calling
+        hr.reviewRequests("approve");
 
-    // Assertion
-    assertTrue(file.exists());
-}
+        // Assertion
+        String content = Files.readString(new File("output.txt").toPath());
+        assertTrue(content.contains("Status: Approved"));
+    }
+
     @Test
-    public void testOutputFileNotEmpty() throws Exception {
+    public void testReviewRequestsReject() throws Exception {
 
-    // Setup
-    HR hr = new HR();
+        // Setup
+        FileWriter writer = new FileWriter("output.txt", false);
+        writer.write(
+                "Employee: Sara\n" +
+                "Status: Pending\n" +
+                "-----------------------------\n"
+        );
+        writer.close();
 
-    // Calling
-    hr.reviewRequests();
+        HR hr = new HR();
 
-    File file = new File("output.txt");
-    String content = Files.readString(file.toPath());
+        // Calling
+        hr.reviewRequests("reject");
 
-    // Assertion
-    assertFalse(content.isEmpty());
-} 
+        // Assertion
+        String content = Files.readString(new File("output.txt").toPath());
+        assertTrue(content.contains("Status: Rejected"));
+    }
+
     @Test
-    public void testOutputContainsStatus() throws Exception {
+    public void testFileStillExistsAfterProcessing() throws Exception {
 
-    // Setup
-    HR hr = new HR();
+        // Setup
+        FileWriter writer = new FileWriter("output.txt", false);
+        writer.write(
+                "Employee: Omar\n" +
+                "Status: Pending\n" +
+                "-----------------------------\n"
+        );
+        writer.close();
 
-    // Calling
-    hr.reviewRequests();
+        HR hr = new HR();
 
-    File file = new File("output.txt");
-    String content = Files.readString(file.toPath());
+        // Calling
+        hr.reviewRequests("approve");
 
-    // Assertion
-    assertTrue(content.contains("Status"));
-}
+        // Assertion
+        File file = new File("output.txt");
+        assertTrue(file.exists());
+    }
 
+    @Test
+    public void testFileNotEmptyAfterProcessing() throws Exception {
+
+        // Setup
+        FileWriter writer = new FileWriter("output.txt", false);
+        writer.write(
+                "Employee: Khalid\n" +
+                "Status: Pending\n" +
+                "-----------------------------\n"
+        );
+        writer.close();
+
+        HR hr = new HR();
+
+        // Calling
+        hr.reviewRequests("approve");
+
+        // Assertion
+        String content = Files.readString(new File("output.txt").toPath());
+        assertFalse(content.trim().isEmpty());
+    }
 }

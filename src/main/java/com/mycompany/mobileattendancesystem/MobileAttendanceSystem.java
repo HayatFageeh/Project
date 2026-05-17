@@ -126,7 +126,7 @@ public class MobileAttendanceSystem {
 
         if (choice == 1) {
             HR hr = new HR();
-            hr.reviewRequests();
+            hr.reviewRequests(input.nextLine());
         } else if (choice == 2) {
             System.out.println("Goodbye");
         } else {
